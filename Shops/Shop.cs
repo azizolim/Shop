@@ -9,10 +9,10 @@ namespace Facility
 {
     public abstract class Shop
     {
-        public string _shopName; 
+        public string _shopName;
+        protected string[] _items;
         protected bool _shopRange;
         protected bool _buyAgain;
-        protected string[] _items;
 
         public  virtual void Greetings()
         {

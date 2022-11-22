@@ -7,9 +7,9 @@ namespace Facility
         {
             _shopName = "Potion";
             _items = new string[5]
-                { "Blades of Chaos", "Magic staff",
-                "Time stone ", "Odin's Eye ",
-                "Captain America's Shield"};
+                { "Potion of Health ", "Potion of Magic",
+                "Reincarnation potion", "Amortensa ",
+                "Potion of Strenght"};
 
         }
     }

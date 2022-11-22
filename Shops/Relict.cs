@@ -20,6 +20,7 @@
         {
             Console.WriteLine("Welcome to the shop, Master ");
             Console.WriteLine("Would you like to drink something?");
+            
             _wantdrink = Console.ReadLine() == "yes" ? true : false;
             if (_wantdrink)
             {
@@ -34,6 +35,7 @@
         private void Drinks()
         {
             int _choosenDrink;
+            
             string[] _drinks = new string[2] { "Tea", "Coffee" };
             for (int i = 0; i < _drinks.Length; i++)
             {
