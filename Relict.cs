@@ -1,0 +1,44 @@
+﻿namespace Facility
+{
+    public class Relict: Shop
+    {
+        
+        bool _wantdrink;
+
+        public Relict() 
+        {
+            _shopName = "Relict";
+        }
+        
+        public override void Greetings()
+        {
+            Console.WriteLine("Welcome to the shop, Master ");
+            Console.WriteLine("Would you like to drink something?");
+            _wantdrink = Console.ReadLine() == "yes" ? true : false;
+            if (_wantdrink)
+            {
+                Console.WriteLine("Choose a drink Master");
+                Drinks();
+            }
+            
+                RelictShopGreetings();
+            
+        }        
+        
+        private void Drinks()
+        {
+            int _choosenDrink;
+            string[] _drinks = new string[2] { "Tea", "Coffee" };
+            for (int i = 0; i < _drinks.Length; i++)
+            {
+                int h = i;
+                h++;
+                Console.WriteLine($"{h}. {_drinks[i]}");
+            }
+            _choosenDrink = int.Parse(Console.ReadLine());
+            _choosenDrink--;
+
+            Console.WriteLine($"This Master is drinking {_drinks[_choosenDrink]}");
+        } 
+    }
+}

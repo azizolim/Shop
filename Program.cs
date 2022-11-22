@@ -2,23 +2,44 @@
 
 internal class Program
 {
-    private static bool _visit;
+    private static int _choosenPlace;
+
+    static Potion _potion = new Potion();
+    static Relict _relict = new Relict();
+
     private static void Main(string[] args)
     {
-        Shop _shop = new Shop();
-        Console.WriteLine("Greetings, Master!");
+        Console.WriteLine("Good day, Master!");
 
-        Console.WriteLine("Master would you like to visit shop?");
-        _visit = Console.ReadLine() == "yes" ? true : false;
-        if (_visit)
-        {
-            Console.WriteLine(" Master is going to the shop");
-            _shop.Greetings();
+        Console.WriteLine("Which place do you want to visit Master?");
+        VisitFacility();
 
-        }
-        else 
+        if (_choosenPlace == 1)
         {
-            Console.WriteLine("What do you want to do? Master");
+            _potion.PotionShopGreetings();
         }
+        else
+        {
+            _relict.Greetings();
+        }
+
+
+        void VisitFacility()
+        {
+            string[] _facilities = new string[2] { "Potion Shop", "Relict Shop" };
+            for (int i = 0; i < _facilities.Length; i++)
+            {
+                int h = i;
+                h++;
+                Console.WriteLine($"{h}. {_facilities[i]}");
+            }
+            _choosenPlace = int.Parse(Console.ReadLine());
+            _choosenPlace--;
+            Console.WriteLine($"Master, we're going to {_facilities[_choosenPlace]}");
+            
+        }
+
+
+
     }
 }
