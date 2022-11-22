@@ -1,45 +1,20 @@
 ﻿using Facility;
+using System.Runtime.CompilerServices;
 
 internal class Program
 {
-    private static int _choosenPlace;
-
-    static Potion _potion = new Potion();
-    static Relict _relict = new Relict();
-
+    private static int _visit;
     private static void Main(string[] args)
     {
-        Console.WriteLine("Good day, Master!");
+        Shop[] _shop = new Shop[2] { new Potion(), new Relict() };
+        Console.WriteLine("Greetings, Master!");
 
-        Console.WriteLine("Which place do you want to visit Master?");
-        VisitFacility();
-
-        if (_choosenPlace == 1)
+        Console.WriteLine("Master which place you want to visit?");
+        for (int i = 0; i != _shop.Length; i++)
         {
-            _potion.PotionShopGreetings();
-        }
-        else
-        {
-            _relict.Greetings();
-        }
-
-
-        void VisitFacility()
-        {
-            string[] _facilities = new string[2] { "Potion Shop", "Relict Shop" };
-            for (int i = 0; i < _facilities.Length; i++)
-            {
-                int h = i;
+            int h = i;
                 h++;
-                Console.WriteLine($"{h}. {_facilities[i]}");
-            }
-            _choosenPlace = int.Parse(Console.ReadLine());
-            _choosenPlace--;
-            Console.WriteLine($"Master, we're going to {_facilities[_choosenPlace]}");
-            
-        }
-
-
-
+            Console.WriteLine($"Places where we could go: {h}. {_shop[i]._shopName}");
+        }   
     }
 }

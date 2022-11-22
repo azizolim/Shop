@@ -15,17 +15,17 @@ namespace Facility
         public  virtual void Greetings()
         {
             Console.WriteLine("Welcome to the shop, Master ");
-            RelictShopGreetings();
+            ShopEntryGreetings();
         }
 
-        protected void RelictShopGreetings()
+        protected void ShopEntryGreetings()
         {
             Console.WriteLine("Master, want you to have a look on our range of products?");
             _shopRange = Console.ReadLine() == "yes" ? true : false;
             if (_shopRange)
             {
                 Console.WriteLine("Dear Master,These are the entire range of products in our store: ");
-                RelictInventory();
+                ShopInventory();
             }
             else
             {
@@ -33,7 +33,7 @@ namespace Facility
             }
         }
 
-        protected void RelictInventory()
+        protected void ShopInventory()
         {
             bool _isCorrect;
             do
