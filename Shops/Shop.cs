@@ -12,16 +12,22 @@ namespace Facility
         public string _shopName; 
         protected bool _shopRange;
         protected bool _buyAgain;
+        protected string[] _items;
+
         public  virtual void Greetings()
         {
+            Console.Clear();
             Console.WriteLine("Welcome to the shop, Master ");
             ShopEntryGreetings();
         }
+
+
 
         protected void ShopEntryGreetings()
         {
             Console.WriteLine("Master, want you to have a look on our range of products?");
             _shopRange = Console.ReadLine() == "yes" ? true : false;
+            Console.WriteLine("Please enter yes or no");
             if (_shopRange)
             {
                 Console.WriteLine("Dear Master,These are the entire range of products in our store: ");
@@ -38,14 +44,8 @@ namespace Facility
             bool _isCorrect;
             do
             {
+                Console.Clear();
                 int _chosenItem;
-                string[] _items = new string[10]
-                { "Blades of Chaos", "Magic staff",
-                "Time stone ", "Odin's Eye ",
-                "Captain America's Shield", "Baki's hand",
-                "Mjolnir", "Fourth Hokage's Kunai",
-                "Frostmourne", "LightSaber" };
-
                 for (int p = 0; p < _items.Length; p++)
                 {
                     int q = p;

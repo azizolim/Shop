@@ -8,6 +8,12 @@
         public Relict() 
         {
             _shopName = "Relict";
+            _items = new string[10]
+                { "Blades of Chaos", "Magic staff",
+                "Time stone ", "Odin's Eye ",
+                "Captain America's Shield", "Baki's hand",
+                "Mjolnir", "Fourth Hokage's Kunai",
+                "Frostmourne", "LightSaber" };
         }
         
         public override void Greetings()

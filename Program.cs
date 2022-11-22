@@ -1,20 +1,33 @@
 ﻿using Facility;
 using System.Runtime.CompilerServices;
 
-internal class Program
+internal partial class Program
 {
-    private static int _visit;
+    public static string _roleName;
+    private static bool _play;
+    private static int _choosenRole;
+    private static Role _currentRole;
     private static void Main(string[] args)
     {
-        Shop[] _shop = new Shop[2] { new Potion(), new Relict() };
+        Role[] _role = new Role[2] { new Player(), new Manager() };
         Console.WriteLine("Greetings, Master!");
 
-        Console.WriteLine("Master which place you want to visit?");
-        for (int i = 0; i != _shop.Length; i++)
+
+        Console.WriteLine("Master which Role you want to play?");
+        for (int i = 0; i != _role.Length; i++)
         {
             int h = i;
-                h++;
-            Console.WriteLine($"Places where we could go: {h}. {_shop[i]._shopName}");
-        }   
+            h++;
+            Console.WriteLine($"Roles which we could play: {h}. {_role[i]._roleName}");
+        }
+        _play = int.TryParse(Console.ReadLine(), out _choosenRole);
+        if (_play)
+        {
+            _choosenRole--;
+            _currentRole = _role[_choosenRole];
+            _currentRole.Start();
+            Console.Clear();
+        }
+
     }
 }
