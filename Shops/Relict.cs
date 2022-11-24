@@ -7,7 +7,7 @@
 
         public Relict() 
         {
-            _shopName = "Relict";
+            FacilityName = "Relict shop";
             _items = new string[10]
                 { "Blades of Chaos", "Magic staff",
                 "Time stone ", "Odin's Eye ",

@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Facility
 {
-    public abstract class Shop
+    public abstract class Shop : FacilityBase
     {
-        public string _shopName;
         protected string[] _items;
         protected bool _shopRange;
         protected bool _buyAgain;
