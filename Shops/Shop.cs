@@ -12,6 +12,17 @@ namespace Facility
         protected string[] _items;
         protected bool _shopRange;
         protected bool _buyAgain;
+        private event AddToInventory OnAddToInventory;
+        private event ShowInventory OnShowInventory;
+        
+        public void Initialize(AddToInventory addToInventory, ShowInventory showInventory) 
+        {
+            OnAddToInventory = addToInventory;
+            addToInventory += OnAddToInventory;
+            OnShowInventory = showInventory;
+            showInventory+= OnShowInventory;
+        }
+
 
         public  virtual void Greetings()
         {
@@ -60,11 +71,14 @@ namespace Facility
                     {
                         _chosenItem--;
                         Console.WriteLine($"Master you have just bought {_items[_chosenItem]}");
+                        OnAddToInventory.Invoke(_items[_chosenItem]);
+                        OnShowInventory.Invoke();
                     }
                     else 
                     {
                         Console.Write("Please input a valid number");
                     }
+
                 }
                 while (!_isCorrect);
 
